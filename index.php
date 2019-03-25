@@ -1,9 +1,8 @@
 <?php
-    require_once 'htmlspecialchars.php';
-    require_once 'Controller.php';
+    require_once 'TodoController.php';
     //新規作成
-    $controller = new Controller;
-    $controller->create();
+    $cont = new TodoController;
+    $cont->create();
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +39,9 @@
         </tr>
         <?php
             //削除
-            $controller->delete();
+            $cont->delete();
             //一覧表示
-            $stt = $controller->index();
+            $stt = $cont->list();
             foreach($stt as $row){
         ?>
         <tr>
