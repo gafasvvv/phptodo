@@ -1,5 +1,5 @@
 <?php
-    require_once 'TodoController.php';
+    require_once '../Controller/TodoController.php';
     //新規作成
     $cont = new TodoController;
     $cont->create();
@@ -41,17 +41,16 @@
             //削除
             $cont->delete();
             //一覧表示
-            $stt = $cont->list();
-            foreach($stt as $row){
+            foreach($cont->list() as $row){
         ?>
         <tr>
             <form method="POST" action="">
                 <td><input type="checkbox" name="checkbox" id="option"></td>
-                <td><?php echo ($row['name']) ?? ''?></td>
-                <td><?php echo ($row['content']) ?? ''?></td>
+                <td><?php $cont->helper()->view($row['name']) ?></td>
+                <td><?php $cont->helper()->view($row['content']) ?></td>
                 <td>
                     <input type="hidden" name="delete" value="true">
-                    <input type="hidden" name="id" value="<?=$row['id']?>">
+                    <input type="hidden" name="id" value="<?php $cont->helper()->view($row['id']) ?>">
                     <input type="submit" name="delete" value="削除">
                 </td>
             </form>

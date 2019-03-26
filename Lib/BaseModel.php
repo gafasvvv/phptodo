@@ -1,16 +1,17 @@
 <?php
-    require_once (dirname(__FILE__)."/config/DSN.php");
+    require_once ("../config/DSN.php");
 
     class BaseModel {
 
-        protected $table;
+        private $table;
 
-        public function __construct(string $table){
+        protected function setTable($table)
+        {
             $this->table = $table;
         }
 
         //DBとの接続処理
-        public function connectDb(){
+        private function connectDb(){
             
             //データベース接続(PDO)
             try{
