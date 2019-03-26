@@ -1,8 +1,9 @@
 <?php
     require_once 'TodoController.php';
     //新規作成
-    $cont = new TodoController;
+    $cont = new TodoController();
     $cont->create();
+    $cont->e();
 ?>
 
 <!DOCTYPE html>
@@ -47,8 +48,8 @@
         <tr>
             <form method="POST" action="">
                 <td><input type="checkbox" name="checkbox" id="option"></td>
-                <td><?php echo ($row['name']) ?? ''?></td>
-                <td><?php echo ($row['content']) ?? ''?></td>
+                <td><?php echo e($row['name']) ?? ''?></td>
+                <td><?php echo e($row['content']) ?? ''?></td>
                 <td>
                     <input type="hidden" name="delete" value="true">
                     <input type="hidden" name="id" value="<?=$row['id']?>">
