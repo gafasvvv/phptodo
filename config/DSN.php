@@ -5,15 +5,14 @@
     */
 
     //設定内容を変数に格納
-    $host = 'localhost';
+    $host = 'mysql';
     $dbName = 'todo';
     $charset = 'utf8';
     $user = 'root';
-    $password = 'password';
-    $unix_socket = 'unix_socket=/tmp/mysql.sock';
+    $password = 'pass';
 
     //定数を設定
-    define("DSN","mysql:host=$host;dbname=$dbName;charset=$charset;$unix_socket");
+    define("DSN","mysql:host=$host;dbname=$dbName;charset=$charset;");
     define("DB_USER",$user);
     define("DB_PASSWORD",$password);
 
