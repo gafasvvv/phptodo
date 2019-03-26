@@ -1,16 +1,18 @@
 <?php
-    require_once (dirname(__FILE__)."/config/DSN.php");
+    require_once "../config/DSN.php";
 
     class BaseModel {
 
-        protected $table;
+        private $table;
 
-        public function __construct(string $table){
+        protected function setTable($table)
+        {
             $this->table = $table;
         }
 
         //DBとの接続処理
-        public function connectDb(){
+        private function connectDb()
+        {
             
             //データベース接続(PDO)
             try{
@@ -22,7 +24,8 @@
             }
         }
 
-        public function getAllList(){
+        public function getAllList()
+        {
             $db = $this->connectDb();
             $stt = $db->prepare("SELECT * FROM $this->table");
             $stt->execute();
@@ -31,7 +34,8 @@
             return $stt;
         }
 
-        public function createTodoList(){
+        public function createTodoList()
+        {
             if(isset($_POST['name']) && isset($_POST['content'])){
                 $db = $this->connectDb();
                 $stt = $db->prepare("INSERT INTO $this->table(name, content)
@@ -42,7 +46,8 @@
             }
         }
 
-        public function deleteId(){
+        public function deleteId()
+        {
             if(isset($_POST['delete'])){
                 $db = $this->connectDb();
                 $stt = $db->prepare("DELETE FROM $this->table WHERE id = :id");
