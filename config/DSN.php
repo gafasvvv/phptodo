@@ -10,9 +10,10 @@
     $charset = 'utf8';
     $user = 'root';
     $password = 'password';
+    $unix_socket = 'unix_socket=/tmp/mysql.sock';
 
     //定数を設定
-    define("DSN","mysql:host=$host;dbname=$dbName;charset=$charset;");
+    define("DSN","mysql:host=$host;dbname=$dbName;charset=$charset;$unix_socket");
     define("DB_USER",$user);
     define("DB_PASSWORD",$password);
 
