@@ -1,5 +1,5 @@
 /* データベース作成*/
-CREATE DATABASE todo;
+CREATE DATABASE todo CHARACTER SET utf8mb4;
 
 /* taskテーブル作成*/
 CREATE TABLE task (
